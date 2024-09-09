@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'CinzelDecorative';
+    src: url('./fonts/CinzelDecorative-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+.cinzel-font {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    letter-spacing: 0.1em; 
+}

@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.cart-icon-fixed {
+    position: fixed;
+    right: 250px;
+    top: 35px; /* Ajustez cette valeur en fonction de la hauteur de votre barre de navigation */
+    z-index: 1000; /* Assurez-vous qu'elle reste visible au-dessus des autres contenus */
+    background-color:#b2bab9;
+
+  
+  
+   /* Fond semi-transparent pour la visibilité */
+    padding: 8px;
+    border-radius: 50%; /* Style circulaire pour l'icône */
+}
+.goldenCursiveText {
+  /* font-family: 'cursive' !important; */
+  color: #ffff;
+  font-size: 20px !important;
+  font-weight: bold !important;
+
+}
+
+
+@media screen and (min-width:769px)and(max-width:1024px) {
+  .cart-icon-fixed {
+    transform: translateX(20%);
+    right: 500px !important;
+}
+}
+
+
+
+
+
+  
+  /* Add more styles as needed */
+  
