@@ -67,7 +67,7 @@ const Navbar = () => {
             <ul className="lg:flex hidden items-center gap-x-12 list-none lg:ml-auto lg:transform-none lg:translate-y-[-50%] lg:gap-y-0 gap-y-8">
               <li className={`py-2 flex font-medium items-center leading-snug cinzel-font ${scrolling ? 'text-black' : 'text-[#ffff] hover:text-[#5badbb]'}`}>
               <NavLink
-    to="/"
+    
     onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById("hero");
@@ -79,7 +79,7 @@ const Navbar = () => {
               </li>
               <li className={`py-2 flex font-medium items-center leading-snug cinzel-font ${scrolling ? 'text-black' : 'text-[#ffff] hover:text-[#5badbb]'}`}>
               <NavLink
-    to="/"
+    
     onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById("propos");
@@ -91,7 +91,7 @@ const Navbar = () => {
               </li>
               <li className={`py-2 flex font-medium items-center leading-snug cinzel-font ${scrolling ? 'text-black' : 'text-[#ffff] hover:text-[#5badbb]'}`}>
               <NavLink
-    to="/"
+    
     onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById("produits");
@@ -105,7 +105,7 @@ const Navbar = () => {
               </li>
               <li className={`py-2 flex font-medium items-center leading-snug cinzel-font ${scrolling ? 'text-black' : 'text-[#ffff] hover:text-[#5badbb]'}`}>
               <NavLink
-    to="/"
+    
     onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById("service");
@@ -117,7 +117,7 @@ const Navbar = () => {
               </li>
               <li className={`py-2 flex font-medium items-center leading-snug cinzel-font ${scrolling ? 'text-black' : 'text-[#ffff] hover:text-[#5badbb]'}`}>
               <NavLink
-    to="/"
+    
     onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById("temoi");
@@ -133,7 +133,7 @@ const Navbar = () => {
 
           <div
             className={
-              "lg:flex lg:items-center items-baseline lg:pt-0 pt-20 lg:h-auto h-screen lg:w-auto w-full justify-center" +
+              "lg:flex lg:items-center items-baseline lg:pt-0 pt-20 lg:h-auto h-[55vh] bg-white bg-opacity-80 lg:w-auto w-full justify-center" +
               (navbarOpen ? " flex" : " hidden")
             }
           >
@@ -142,7 +142,7 @@ const Navbar = () => {
              
               <li className={`py-2 flex font-medium items-center leading-snug cinzel-font ${scrolling ? 'text-black' : 'hover:text-[#5badbb]'}`}>
               <NavLink
-    to="/"
+    
     onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById("hero");
@@ -154,7 +154,7 @@ const Navbar = () => {
                 </li>
                 <li className={`py-2 flex font-medium items-center leading-snug cinzel-font ${scrolling ? 'text-black' : 'hover:text-[#5badbb]'}`}>
                 <NavLink
-    to="/"
+    
     onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById("propos");
@@ -166,7 +166,7 @@ const Navbar = () => {
                 </li>
                 <li className={`py-2 flex font-medium items-center leading-snug cinzel-font ${scrolling ? 'text-black' : 'hover:text-[#5badbb]'}`}>
                 <NavLink
-    to="/"
+    
     onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById("produits");
@@ -180,7 +180,7 @@ const Navbar = () => {
                 </li>
                 <li className={`py-2 flex font-medium items-center leading-snug cinzel-font ${scrolling ? 'text-black' : 'hover:text-[#5badbb]'}`}>
                 <NavLink
-    to="/"
+    
     onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById("service");
@@ -192,7 +192,7 @@ const Navbar = () => {
                 </li>
                 <li className={`py-2 flex font-medium items-center leading-snug cinzel-font ${scrolling ? 'text-black' : 'hover:text-[#5badbb]'}`}>
                 <NavLink
-    to="/"
+    
     onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById("temoi");
