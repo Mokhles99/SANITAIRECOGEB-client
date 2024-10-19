@@ -4,6 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 import Marquee from "react-fast-marquee";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCarousels } from "../actions/carousel.actions";
+
 const responsive = {
   module: {
     breakpoint: { max: 4000, min: 0 },
@@ -16,6 +17,14 @@ const Real_estate = () => {
 
   useEffect(() => {
     dispatch(getAllCarousels());
+    const timer = setTimeout(() => {
+      const produitsSection = document.getElementById("produits");
+      if (produitsSection) {
+        produitsSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 10000); 
+
+    return () => clearTimeout(timer); // Nettoyage du timer lors du démontage
   }, [dispatch]);
 
   const images = useSelector((state) => state.carousel.carousels)
@@ -76,14 +85,15 @@ const Real_estate = () => {
         </Carousel>
         <div className="absolute inset-0 flex items-center justify-center">
           <h1
-            className="text-white text-4xl md:text-6xl font-bold text-center"
+            className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center px-4"
             style={{
               fontFamily: "'CinzelDecorative', serif",
-              letterSpacing: "0.3em",
+              letterSpacing: "0.4em",
               lineHeight: "1.5em", 
             }}
           >
-            L'EXCELLENCE DANS <br />CHAQUE GOUTTE D'EAU
+            <span className="block">L'EXCELLENCE DANS</span>
+            <span className="block">CHAQUE GOUTTE D'EAU</span>
           </h1>
         </div>
       </div>

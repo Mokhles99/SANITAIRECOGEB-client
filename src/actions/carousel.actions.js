@@ -1,5 +1,5 @@
 import { carouselConstants } from './constantes';
-
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 // Action to create a carousel
 export const createCarousel = (carouselData) => (dispatch) => {
   dispatch({ type: carouselConstants.CREATE_CAROUSEL_REQUEST });
@@ -11,7 +11,7 @@ export const createCarousel = (carouselData) => (dispatch) => {
     });
   }
 
-  fetch('http://localhost:8082/carousel/create', {
+  fetch(`${BASE_URL}/carousel/create`, {
     method: 'POST',
     body: formData,
   })
@@ -34,7 +34,7 @@ export const createCarousel = (carouselData) => (dispatch) => {
 export const getAllCarousels = () => (dispatch) => {
   dispatch({ type: carouselConstants.GET_ALL_CAROUSELS_REQUEST });
 
-  fetch('http://localhost:8082/carousel/carousels')
+  fetch(`${BASE_URL}/carousel/carousels`)
     .then((response) => response.json())
     .then((data) =>
       dispatch({
@@ -55,7 +55,7 @@ export const getCarouselById = (id) => async (dispatch) => {
   dispatch({ type: carouselConstants.GET_CAROUSEL_REQUEST });
 
   try {
-    const response = await fetch(`http://localhost:8082/carousel/carousels/${id}`);
+    const response = await fetch(`${BASE_URL}/carousel/carousels/${id}`);
     const data = await response.json();
     dispatch({
       type: carouselConstants.GET_CAROUSEL_SUCCESS,
@@ -80,7 +80,7 @@ export const updateCarousel = (id, carouselData) => (dispatch) => {
     });
   }
 
-  fetch(`http://localhost:8082/carousel/update/${id}`, {
+  fetch(`${BASE_URL}/carousel/update/${id}`, {
     method: 'PUT',
     body: formData,
   })
@@ -110,7 +110,7 @@ export const updateCarousel = (id, carouselData) => (dispatch) => {
 export const deleteCarousel = (id) => (dispatch) => {
   dispatch({ type: carouselConstants.DELETE_CAROUSEL_REQUEST });
 
-  fetch(`http://localhost:8082/carousel/delete/${id}`, {
+  fetch(`${BASE_URL}/carousel/delete/${id}`, {
     method: 'DELETE',
   })
     .then((response) => {
@@ -139,7 +139,7 @@ export const deleteCarousel = (id) => (dispatch) => {
 export const countCarousels = () => (dispatch) => {
   dispatch({ type: carouselConstants.COUNT_CAROUSELS_REQUEST });
 
-  fetch('http://localhost:8082/carousel/count')
+  fetch(`${BASE_URL}/carousel/count`)
     .then((response) => response.json())
     .then((data) =>
       dispatch({

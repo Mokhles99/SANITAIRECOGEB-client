@@ -4,7 +4,7 @@ import { generateCartId } from '../utils/cartUtils'
 
 import axios from 'axios'; // Importez axios
 
-
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const createNewCart = () => {
     const newCartId = generateCartId();
@@ -27,7 +27,7 @@ export const addToCarttwo = (cartId, productId, quantity = 1) => async (dispatch
     }
 
     try {
-        const response = await fetch(`http://localhost:8082/carttwo/${cartId}/add`, {
+        const response = await fetch(`${BASE_URL}/carttwo/${cartId}/add`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ productId, quantity })
@@ -52,7 +52,7 @@ export const addToCarttwo = (cartId, productId, quantity = 1) => async (dispatch
 export const getCarttwo = (cartId) => async (dispatch) => {
     dispatch({ type: carttwoConstants.GET_CARTTWO_REQUEST });
     try {
-        const response = await fetch(`http://localhost:8082/carttwo/${cartId}/getCarttwo`, {
+        const response = await fetch(`${BASE_URL}/carttwo/${cartId}/getCarttwo`, {
             method: 'GET'
         });
         const data = await response.json();
@@ -68,7 +68,7 @@ export const updateCartWithUserInfo = (cartId, userInfo) => async (dispatch) => 
     dispatch({ type: carttwoConstants.UPDATE_CARTTWO_REQUEST });
 
     try {
-        const response = await fetch(`http://localhost:8082/carttwo/${cartId}/userinfo`, {
+        const response = await fetch(`${BASE_URL}/carttwo/${cartId}/userinfo`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userInfo })
@@ -96,7 +96,7 @@ export const updateCartWithUserInfo = (cartId, userInfo) => async (dispatch) => 
 export const removeItemFromCart = (cartId, itemId) => async (dispatch) => {
     dispatch({ type: carttwoConstants.REMOVE_ITEM_FROM_CART_REQUEST });
     try {
-        const response = await fetch(`http://localhost:8082/carttwo/${cartId}/items/${itemId}`, {
+        const response = await fetch(`${BASE_URL}/carttwo/${cartId}/items/${itemId}`, {
             method: 'DELETE'
         });
         if (!response.ok) {
@@ -125,7 +125,7 @@ export const updateItemQuantity = (cartId, itemId, quantity) => async (dispatch)
     }
 
     try {
-        const response = await fetch(`http://localhost:8082/carttwo/${cartId}/items/${itemId}`, {
+        const response = await fetch(`${BASE_URL}/carttwo/${cartId}/items/${itemId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ quantity })
@@ -158,7 +158,7 @@ export const clearCart = () => {
 export const getAllCarts = () => async (dispatch) => {
     dispatch({ type: carttwoConstants.GET_ALL_CARTS_REQUEST });
     try {
-        const response = await fetch('http://localhost:8082/carttwo/all');
+        const response = await fetch(`${BASE_URL}/carttwo/all`);
         const data = await response.json();
         if (response.ok) {
             dispatch({ type: carttwoConstants.GET_ALL_CARTS_SUCCESS, payload: data });
@@ -169,51 +169,4 @@ export const getAllCarts = () => async (dispatch) => {
         dispatch({ type: carttwoConstants.GET_ALL_CARTS_FAILURE, payload: error.message });
     }
 };
-
-
-// export const addToCarttwo = (productId, quantity) => async (dispatch) => {
-//     console.log('Sending to server:', { productId, quantity });
-//     dispatch({ type: carttwoConstants.ADD_TO_CARTTWO_REQUEST });
-//     try {
-//         const response = await fetch('http://localhost:8082/carttwo/cart/add', {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify({ productId, quantity })
-//         });
-//         const data = await response.json();
-//         dispatch({ type: carttwoConstants.ADD_TO_CARTTWO_SUCCESS, payload: data });
-//     } catch (error) {
-//         dispatch({ type: carttwoConstants.ADD_TO_CARTTWO_FAILURE, payload: error.message });
-//     }
-// };
-
-// export const getCarttwo = () => async (dispatch) => {
-//     dispatch({ type: carttwoConstants.GET_CARTTWO_REQUEST });
-//     try {
-//         const response = await fetch('http://localhost:8082/carttwo/getCarttwo');
-//         const data = await response.json();
-//         dispatch({ type: carttwoConstants.GET_CARTTWO_SUCCESS, payload: data });
-//     } catch (error) {
-//         dispatch({ type: carttwoConstants.GET_CARTTWO_FAILURE, payload: error.message });
-//     }
-// };
-// export const addToCarttwo = (productId, quantity) => async (dispatch) => {
-//     console.log('Sending to server:', { productId, quantity });
-//     dispatch({ type: carttwoConstants.ADD_TO_CARTTWO_REQUEST });
-//     try {
-//         const response = await fetch('http://localhost:8082/carttwo/cart/add', {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify({ productId, quantity })
-//         });
-//         const data = await response.json();
-
-//         // Stocker les données du panier dans le localStorage
-//         localStorage.setItem('cartItems', JSON.stringify(data.cartItems)); 
-
-//         dispatch({ type: carttwoConstants.ADD_TO_CARTTWO_SUCCESS, payload: data });
-//     } catch (error) {
-//         dispatch({ type: carttwoConstants.ADD_TO_CARTTWO_FAILURE, payload: error.message });
-//     }
-// };
 

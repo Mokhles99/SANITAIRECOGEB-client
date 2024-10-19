@@ -51,7 +51,7 @@ const Footer = () => {
               <span className="flex items-center gap-x-2">
               <span className="flex items-center gap-x-2">
              
-             <img src={logo} alt="Logo" className="w-3/4 h-3/4 object-contain" />
+             <img src={logo} alt="Logo" className=" h-3/4 object-contain" />
          
          
          </span>
@@ -132,15 +132,13 @@ const Footer = () => {
       </section>
 
       <section className="lg:block hidden bg-[#D8DADF] text-[#7b7a7a] xl:text-base text-sm">
-        <div className="container mx-auto px-3 lg:flex justify-between items-center lg:h-14 lg:text-left text-center">
-        <p className="">
-          © 2024 COGEB - Tous Droits Reservés
-        </p>
-        <ul className="flex lg:flex-row flex-wrap lg:justify-normal justify-center items-center gap-x-4">
-        <li className="cursor-pointer">Terms and conditions</li>
-        <li className="cursor-pointer">Privacy Policy</li>
-        <li className="cursor-pointer">Disclaimer</li>
-        </ul>
+      <div className="container mx-auto px-3 lg:flex justify-between items-center lg:h-14 lg:text-left text-center">
+          <p>© 2024 COGEB - Tous droits réservés</p>
+          <ul className="flex lg:flex-row flex-wrap lg:justify-normal justify-center items-center gap-x-4">
+            <li className="cursor-pointer">Conditions générales d'utilisation</li>
+            <li className="cursor-pointer">Politique de confidentialité</li>
+            <li className="cursor-pointer">COGEB</li>
+          </ul>
         </div>
       </section>
 

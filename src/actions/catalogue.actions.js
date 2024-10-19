@@ -1,5 +1,5 @@
 import { catalogueConstants } from './constantes';
-
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 export const createCatalogue = (catalogueData) => (dispatch) => {
   dispatch({ type: catalogueConstants.CREATE_CATALOGUE_REQUEST });
 
@@ -13,7 +13,7 @@ export const createCatalogue = (catalogueData) => (dispatch) => {
     });
   }
 
-  fetch('http://localhost:8082/catalogue/create', {
+  fetch(`${BASE_URL}/catalogue/create`, {
     method: 'POST',
     body: formData, // Pas besoin de définir 'Content-Type' pour FormData, le navigateur le fera
   })
@@ -32,7 +32,7 @@ export const createCatalogue = (catalogueData) => (dispatch) => {
 // Récupérer tous les produits
 export const getAllCatalogues = () => (dispatch) => {
   dispatch({ type: catalogueConstants.GET_ALL_CATALOGUES_REQUEST });
-  fetch('http://localhost:8082/catalogue/catalogues')
+  fetch(`${BASE_URL}/catalogue/catalogues`)
     .then((response) => response.json())
     .then((data) => dispatch({
       type: catalogueConstants.GET_ALL_CATALOGUES_SUCCESS,
@@ -48,7 +48,7 @@ export const getAllCatalogues = () => (dispatch) => {
 export const getCatalogueById = (id) => async (dispatch) => {
     dispatch({ type: catalogueConstants.GET_CATALOGUE_REQUEST });
     try {
-      const response = await fetch(`http://localhost:8082/catalogue/catalogues/${id}`);
+      const response = await fetch(`${BASE_URL}/catalogue/catalogues/${id}`);
       const data = await response.json();
       dispatch({
         type: catalogueConstants.GET_CATALOGUE_SUCCESS,
@@ -78,7 +78,7 @@ export const updateCatalogue = (id, catalogueData) => (dispatch) => {
 
   console.log("FormData to be sent:", Object.fromEntries(formData)); // Display FormData entries
 
-  fetch(`http://localhost:8082/catalogue/update/${id}`, {
+  fetch(`${BASE_URL}/catalogue/update/${id}`, {
       method: 'PUT',
       body: formData,
   })
@@ -116,7 +116,7 @@ export const updateCatalogue = (id, catalogueData) => (dispatch) => {
 export const deleteCatalogue = (id) => (dispatch) => {
     dispatch({ type: catalogueConstants.DELETE_CATALOGUE_REQUEST });
 
-    fetch(`http://localhost:8082/catalogue/delete/${id}`, {
+    fetch(`${BASE_URL}/catalogue/delete/${id}`, {
         method: 'DELETE',
     })
     .then(response => {
@@ -146,7 +146,7 @@ export const deleteCatalogue = (id) => (dispatch) => {
 
 export const countCatalogues = () => (dispatch) => {
   dispatch({ type: catalogueConstants.COUNT_CATALOGUES_REQUEST });
-  fetch('http://localhost:8082/catalogue/count')
+  fetch(`${BASE_URL}/catalogue/count`)
     .then((response) => response.json())
     .then((data) => dispatch({
       type: catalogueConstants.COUNT_CATALOGUES_SUCCESS,

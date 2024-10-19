@@ -115,7 +115,7 @@ const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
 
         </div>
         {activeTypes.length > 0 && (
-          <div className="grid grid-cols-4 gap-4 lg:w-2/5 lg:pt-0 pt-6">
+          <div className="grid grid-cols-3 gap-3 lg:w-2/5 lg:pt-0 pt-6">
             {activeTypes.map((type, index) => (
               <button
                 key={index}
@@ -189,12 +189,12 @@ const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
         <div className="flex justify-center items-center pt-12">
           <button
             onClick={handlePrevPage}
-            className="text-[#001F75] rounded-full border border-[#001F75] px-6 py-2 focus:bg-[#001F75] focus:text-white mr-4"
+            className="text-[#001F75] rounded-full border border-[#001F75] px-3 py-2 focus:bg-[#001F75] focus:text-white mr-2"
             disabled={currentPage === 0}
           >
             Précédent
           </button>
-          <span className="mx-4">Page {currentPage + 1} of {totalPages}</span>
+          <span className="mx-2">Page {currentPage + 1} sur {totalPages}</span>
           <button
             onClick={handleNextPage}
             className="text-[#001F75] rounded-full border border-[#001F75] px-6 py-2 focus:bg-[#001F75] focus:text-white"

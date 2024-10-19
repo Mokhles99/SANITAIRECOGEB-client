@@ -63,7 +63,7 @@ const Testimonials = () => {
             </div>
           </span>
         </div>
-        <button className="bg-gradient-to-r from-[#7992d76b] to-[#eff9f9] rounded-full h-16 w-16 cursor-auto absolute -top-6 -left-6"></button>
+        {/* <button className="bg-gradient-to-r from-[#7992d76b] to-[#eff9f9] rounded-full h-16 w-16 cursor-auto absolute -top-6 -left-6"></button> */}
       </div>
     </main>
   );

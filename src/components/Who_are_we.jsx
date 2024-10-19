@@ -103,26 +103,30 @@ const thirdImageUrl = abouts.length > 2 && abouts[2].files.length > 0
       </div>
       <div className="lg:hidden block pt-4 py-16">
         <div className="bg-white shadow-2xl px-4 py-6 rounded-3xl flex items-center gap-x-3 lg:w-4/5 mt-6">
-          <FaHome className="text-4xl text-[#0c4f37] w-1/3" />
+         
           <span className="">
-            <h1 className="text-[#0c4f37] text-lg font-medium">
-              Donec porttitor euismod
-            </h1>
-            <p className="text-[#a5a5a5]">
-              Nullam a lacinia ipsum, nec dignissim purus. Nulla
-            </p>
+           
+          
+            <p className="text-[#a5a5a5] w-5/5 text-justify">
+          COGEB excelle dans la vente de matériel et de produits de
+          construction. Alliant qualité et diversité, elle s'associe à des
+          marques reconnues pour fournir des solutions adaptées à tous les
+          besoins du secteur.
+        </p>
+          
           </span>
         </div>
 
         <div className="bg-white shadow-2xl px-4 py-6 rounded-3xl flex items-center gap-x-3 lg:w-4/5 mt-6">
-          <FaHome className="text-4xl text-[#0c4f37] w-1/3" />
+      
           <span className="">
-            <h1 className="text-[#0c4f37] text-lg font-medium">
-              Donec porttitor euismod
-            </h1>
-            <p className="text-[#a5a5a5]">
-              Nullam a lacinia ipsum, nec dignissim purus. Nulla
-            </p>
+          
+            <p className="text-[#a5a5a5] w-5/5 text-justify">
+          Avec ses showrooms spécialisés et une grande capacité de stockage,
+          COGEB offre une expérience unique. Son équipe compétente garantit un
+          service personnalisé, répondant aux besoins spécifiques de chaque
+          projet de construction.
+        </p>
           </span>
         </div>
       </div>
