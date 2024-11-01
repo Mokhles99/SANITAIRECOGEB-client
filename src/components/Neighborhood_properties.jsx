@@ -92,7 +92,7 @@ const Neighborhood_properties = ({ products }) => {
                 Plus de Détails 
               </button>
 
-      <section className="grid md:grid-cols-7 grid-cols-2 md:gap-12 gap-4 pb-12">
+              <section className="grid md:grid-cols-7 grid-cols-2 md:gap-4 lg:gap-10 gap-4 pb-12">
         {/* <div className={`relative md:col-span-2 rounded-3xl ${getActiveClass('Grès')}`} onClick={() => handleFilter('Grès')}>
           <img
             src="/assets/image1sanitaire.jpg"
@@ -116,7 +116,7 @@ const Neighborhood_properties = ({ products }) => {
   <img
     src="/assets/image1sanitaire.jpg"
     alt="Grès"
-    className="rounded-3xl object-cover w-full h-40 sm:h-48 md:h-60 lg:h-80"
+    className="rounded-3xl object-cover w-full h-full sm:h-48 md:h-60 lg:h-80"
   />
   <div className="absolute inset-0 bg-black bg-opacity-30 rounded-3xl flex items-end">
     <p 
@@ -150,13 +150,13 @@ const Neighborhood_properties = ({ products }) => {
           <img
             src="/assets/catrob.JPG"
             alt="Robinet"
-            className="rounded-3xl object-cover md:h-80 h-40 w-full"
+            className="rounded-3xl object-cover md:h-80 h-full w-full"
           />
-          <span className="absolute md:bottom-8 bottom-4 md:left-8 left-4">
+          <span className="absolute md:bottom-8 bottom-4 md:left-6 left-4">
             <p className="text-white text-xs sm:text-sm md:text-xl lg:text-xl xl:text-3xl" style={{
               fontFamily: "'CinzelDecorative', serif",
               fontWeight: "bold",
-              letterSpacing: "0.2em",
+              letterSpacing: "0.1em",
               maxWidth: "100%",
               overflow: "hidden",
               textOverflow: "ellipsis",

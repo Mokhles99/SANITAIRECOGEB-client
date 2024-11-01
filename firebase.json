@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "cogeb-sanitaire-website",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

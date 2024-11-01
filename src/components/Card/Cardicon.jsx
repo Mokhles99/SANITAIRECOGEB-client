@@ -156,28 +156,64 @@ function CartIcon() {
         dispatch(updateItemQuantity(cartId, itemId, newQuantity));
     };
     
-    const handleDecreaseQuantity = (itemId) => {
+    // const handleDecreaseQuantity = (itemId) => {
+    //     const cartId = localStorage.getItem('cartId');
+    //     if (itemQuantities[itemId] > 1) {
+    //         const newQuantity = itemQuantities[itemId] - 1;
+    //         setItemQuantities({ ...itemQuantities, [itemId]: newQuantity });
+    //         dispatch(updateItemQuantity(cartId, itemId, newQuantity));
+    //     } else {
+    //         const newItems = { ...itemQuantities };
+    //         delete newItems[itemId];
+    //         setItemQuantities(newItems);
+    //         dispatch(removeItemFromCart(carttwo._id, itemId));
+    //     }
+    //     dispatch(getCarttwo(cartId));
+    // };
+    const handleDecreaseQuantity = async (itemId) => {
         const cartId = localStorage.getItem('cartId');
+    
         if (itemQuantities[itemId] > 1) {
             const newQuantity = itemQuantities[itemId] - 1;
             setItemQuantities({ ...itemQuantities, [itemId]: newQuantity });
-            dispatch(updateItemQuantity(cartId, itemId, newQuantity));
+            await dispatch(updateItemQuantity(cartId, itemId, newQuantity));
         } else {
             const newItems = { ...itemQuantities };
             delete newItems[itemId];
             setItemQuantities(newItems);
-            dispatch(removeItemFromCart(carttwo._id, itemId));
+            await dispatch(removeItemFromCart(carttwo._id, itemId));
         }
+    
+        // Fetch the updated cart after the operation
+        dispatch(getCarttwo(cartId));
     };
 
-    const handleRemoveItem = (itemId) => {
+    // const handleRemoveItem = (itemId) => {
+    //     const cartId = localStorage.getItem('cartId');
+    //     dispatch(removeItemFromCart(carttwo._id, itemId));
+    //     setItemQuantities(prevQuantities => {
+    //         const newQuantities = { ...prevQuantities };
+    //         delete newQuantities[itemId];
+    //         return newQuantities;
+    //     });
+    //     dispatch(getCarttwo(cartId));
+    // };
+
+    const handleRemoveItem = async (itemId) => {
         const cartId = localStorage.getItem('cartId');
-        dispatch(removeItemFromCart(carttwo._id, itemId));
+        
+        // Remove the item from the cart
+        await dispatch(removeItemFromCart(carttwo._id, itemId));
+        
+        // Update local state
         setItemQuantities(prevQuantities => {
             const newQuantities = { ...prevQuantities };
             delete newQuantities[itemId];
             return newQuantities;
         });
+    
+        // Fetch the updated cart
+        dispatch(getCarttwo(cartId));
     };
 
 
@@ -249,14 +285,16 @@ function CartIcon() {
                                     primary={
                                         item.product ? (  // Vérifiez que item.product n'est pas null ou undefined
                                             <span>
-                                                {item.product.name}
+                                                {item.product.name} 
                                                 <span style={{ marginLeft: '15px', color: '#36454F', fontWeight: 'bold' }}>
                                                     x <input 
                                                         type="number" 
                                                         value={quantity} 
                                                         onChange={(e) => handleManualQuantityChange(item._id, e.target.value)} 
                                                         style={{ width: '60px', textAlign: 'right', marginLeft: '5px', marginRight: '5px', border: '1px solid #ccc', borderRadius: '4px', padding: '2px 4px' }} 
-                                                    /> m<sup>2</sup>
+                                                    /> 
+                                                     {item.product.famille !== 'Robinet' && <span> m<sup>2</sup></span>}
+                                                    {/* m<sup>2</sup> */}
                                                 </span>
                                                 <br />
                                                 <span style={{ fontSize: '12px', color: 'grey', display: 'block', marginTop: '5px' }}>
@@ -331,7 +369,7 @@ function CartIcon() {
                                 value={quantity} 
                                 onChange={(e) => handleManualQuantityChange(item._id, e.target.value)} 
                                 style={{ width: '60px', textAlign: 'right', marginLeft: '5px', marginRight: '5px', border: '1px solid #ccc', borderRadius: '4px', padding: '2px 4px' }} 
-                            /> m<sup>2</sup>
+                            />    {item.product.famille !== 'Robinet' && <span> m<sup>2</sup></span>}
                         </span>
                         <br />
                         <span style={{ fontSize: '12px', color: 'grey', display: 'block', marginTop: '5px' }}>
