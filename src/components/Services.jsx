@@ -19,7 +19,7 @@ const Services = () => {
 
         <div className="flex lg:flex-row flex-col gap-x-16 gap-y-8 py-20">
           <div className="bg-white rounded-3xl lg:h-96 h-80 flex flex-col justify-center items-center lg:w-1/3 shadow-2xl">
-            <button className="bg-[#576D80] text-white rounded-full w-20 h-20 shadow-2xl">
+            <button className="bg-[#576D80] text-white rounded-full w-20 h-20 shadow-2xl cursor-default">
               <FaCartPlus className="w-1/2 h-1/2 m-auto" />
             </button>
             <p className="text-lg font-medium py-4">Vente</p>
@@ -28,7 +28,7 @@ const Services = () => {
             </p>
           </div>
           <div className="bg-white rounded-3xl lg:h-96 h-80 flex flex-col justify-center items-center lg:w-1/3 shadow-2xl">
-            <button className="bg-[#576D80] text-white rounded-full w-20 h-20 shadow-2xl">
+            <button className="bg-[#576D80] text-white rounded-full w-20 h-20 shadow-2xl cursor-default">
               <MdSupportAgent className="w-1/2 h-1/2 m-auto " />
             </button>
             <p className="text-lg font-medium py-4">Conseil Client</p>
@@ -37,7 +37,7 @@ const Services = () => {
             </p>
           </div>
           <div className="bg-white rounded-3xl lg:h-96 h-80 flex flex-col justify-center items-center lg:w-1/3 shadow-2xl">
-            <button className="bg-[#576D80] text-white rounded-full w-20 h-20 shadow-2xl">
+            <button className="bg-[#576D80] text-white rounded-full w-20 h-20 shadow-2xl cursor-default">
               <FaTruckMoving className="w-1/2 h-1/2 m-auto" />
             </button>
             <p className="text-lg font-medium py-4">Transport</p>

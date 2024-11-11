@@ -407,9 +407,7 @@ const Latest_property = () => {
               </div>
             ))}
           <div className="flex justify-center pt-12">
-            <button className="text-[#001F75] rounded-full border border-[#001F75] px-6 py-2 focus:bg-[#001F75] focus:text-white">
-              View more properties
-            </button>
+       
           </div>
         </div>
       </section>

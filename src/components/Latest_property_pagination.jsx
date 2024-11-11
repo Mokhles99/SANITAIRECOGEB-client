@@ -6,7 +6,7 @@ import { FaStar } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-
+import { AiOutlineCheckCircle } from "react-icons/ai";
 const modalStyle = {
   position: 'absolute',
   top: '50%',
@@ -20,6 +20,23 @@ const modalStyle = {
   boxShadow: 24,
   p: 4,
   textAlign: 'center',
+};
+const confirmationModalStyle = {
+  position: 'absolute',
+  top: '20%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '300px',
+  bgcolor: 'white',
+  color: 'black',
+  borderRadius: '10px',
+  boxShadow: 24,
+  p: 4,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '10px',
+  fontSize: '1rem',
 };
 
 const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
@@ -50,6 +67,13 @@ const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
       return;
     }
     dispatch(addToCarttwo(cartIdFromStorage, productId, 1));
+
+    setShowConfirmationModal(true);
+    
+    // Masquer le modal après 2 secondes
+    setTimeout(() => {
+      setShowConfirmationModal(false);
+    }, 2000);
   };
 
   const handleProductClick = (productId) => {
@@ -73,6 +97,8 @@ const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
   const selectedProducts = filteredProducts.slice(startIndex, startIndex + itemsPerPage);
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
+
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   return (
     <div className="container mx-auto px-3">
       <div className="lg:flex justify-between items-center">
@@ -234,6 +260,16 @@ const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
               </div>
             </>
           )}
+        </Box>
+      </Modal>
+      <Modal
+        open={showConfirmationModal}
+        onClose={() => setShowConfirmationModal(false)}
+        aria-labelledby="confirmation-modal-title"
+      >
+        <Box sx={confirmationModalStyle}>
+          <AiOutlineCheckCircle color="green" size={30} />
+          <span>Produit ajouté au panier</span>
         </Box>
       </Modal>
     </div>

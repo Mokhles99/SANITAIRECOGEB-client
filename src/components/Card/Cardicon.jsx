@@ -291,7 +291,7 @@ function CartIcon() {
                                                         type="number" 
                                                         value={quantity} 
                                                         onChange={(e) => handleManualQuantityChange(item._id, e.target.value)} 
-                                                        style={{ width: '60px', textAlign: 'right', marginLeft: '5px', marginRight: '5px', border: '1px solid #ccc', borderRadius: '4px', padding: '2px 4px' }} 
+                                                        style={{ width: '40px', textAlign: 'right', marginLeft: '5px', marginRight: '5px', border: '1px solid #ccc', borderRadius: '4px', padding: '2px 4px' }} 
                                                     /> 
                                                      {item.product.famille !== 'Robinet' && <span> m<sup>2</sup></span>}
                                                     {/* m<sup>2</sup> */}
@@ -368,7 +368,7 @@ function CartIcon() {
                                 type="number" 
                                 value={quantity} 
                                 onChange={(e) => handleManualQuantityChange(item._id, e.target.value)} 
-                                style={{ width: '60px', textAlign: 'right', marginLeft: '5px', marginRight: '5px', border: '1px solid #ccc', borderRadius: '4px', padding: '2px 4px' }} 
+                                style={{ width: '40px', textAlign: 'right', marginLeft: '5px', marginRight: '5px', border: '1px solid #ccc', borderRadius: '4px', padding: '2px 4px' }} 
                             />    {item.product.famille !== 'Robinet' && <span> m<sup>2</sup></span>}
                         </span>
                         <br />
@@ -382,7 +382,8 @@ function CartIcon() {
                             );
                         })}
                     </List>
-                    <Box sx={{ width: '90%', borderBottom: '1px solid gray'}} /> 
+                    <Box sx={{ width: '95%', borderBottom: '1px solid gray'}} /> 
+                    <List sx={{ width: '100%', maxHeight: 500, overflow: 'auto', color: 'black' }}>
                     <Typography id="cart-modal-title" variant="h6" component="h2" sx={{ color: 'gray' }}>
                         Informations utilisateur
                     </Typography>
@@ -461,6 +462,7 @@ function CartIcon() {
                         '&:hover': { backgroundColor: '#ce9d29', color: '#fbfbfb' }
                      }}
                      > Envoyer <SendIcon sx={{ ml:1}}/> </Button>
+                      </List>
                 </Box>
             </Modal>
         </>
