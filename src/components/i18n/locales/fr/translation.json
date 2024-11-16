@@ -1,0 +1,211 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "about": "A Propos",
+    "products": "Produits",
+    "services": "Services",
+    "testimonials": "Témoignages",
+    "address":"COGEB, Avenue Hedi Nouira 4003 - Sousse - Tunisie"
+  },
+
+
+  "hero": {
+    "title1": "L'EXCELLENCE DANS",
+    "title2": "CHAQUE GOUTTE D'EAU"
+  },
+  "suppliers": "NOS FOURNISSEURS",
+
+
+
+
+
+
+  "about": "A PROPOS",
+  "who_are_we": "Qui Sommes-Nous ?",
+  "founded": "Fondée en 1980, COGEB se spécialise dans la vente des produits sanitaires. Leader dans son domaine, elle propose divers produits répondant aux besoins des professionnels et des particuliers.",
+  "excellence": "COGEB excelle dans la vente d'articles sanitaires, robinetterie et accessoires. Alliant qualité et diversité, elle couvre une large gamme de produits, de l'économique au luxe, en partenariat avec des marques reconnues.",
+  "showrooms": "Avec ses showrooms modernes et un vaste stock, COGEB offre une expérience unique. Son équipe compétente et dédiée garantit un service personnalisé, répondant aux besoins spécifiques de chaque projet."
+
+,
+"Neighborhood_properties": {
+  "title": "NOS CATALOGUES",
+  "subtitle": "Choisir vos désirs",
+  "productTypes": {
+    "Fer": "FER",
+    "Ciment": "CIMENT",
+    "Brique": "BRIQUE",
+    "Tous": "TOUS LES PRODUITS"
+  }
+}
+,
+"services_title": "Nos services",
+  "services_description": "Nous offrons une gamme de services personnalisés pour répondre à vos besoins spécifiques, assurant une qualité et une satisfaction exceptionnelles",
+  "sales": "Vente",
+  "sales_description": "COGEB propose une large gamme de produits de construction, incluant bois et articles sanitaires, pour satisfaire tous les besoins.",
+  "customer_advice": "Conseil Client",
+  "customer_advice_description": "Nos experts vous guident dans le choix des produits adaptés à vos projets, en tenant compte de vos besoins et de votre budget.",
+  "transport": "Transport",
+  "transport_description": "COGEB assure un transport fiable pour que vos produits arrivent à temps et en bon état.",
+  
+
+
+  "testimonials_title": "Témoignages",
+  "testimonials_subtitle": "Regardez ce que nos clients disent !",
+  "testimonials_description": "Nos clients apprécient la qualité exceptionnelle de nos produits et services.",
+  "testimonial_text": "Extrêmement satisfaits des services de COGEB Groupe, dont l'expertise et le professionnalisme ont dépassé toutes nos attentes",
+  "testimonial_client": "Client Cogeb",
+
+
+  "become_agent_title": "Client COGEB.",
+  "become_agent_description": "Restez informé de nos dernières nouveautés et offres exclusives en vous inscrivant à notre newsletter.",
+  "become_agent_button": "Inscrivez-vous maintenant",
+
+  "formDialog": {
+    "fillAllFields": "Veuillez remplir tous les champs.",
+    "successTitle": "Succès!",
+    "successText": "Formulaire soumis avec succès!",
+    "errorTitle": "Erreur!",
+    "errorText": "Erreur lors de l'envoi du formulaire.",
+    "okButton": "OK",
+    "emailLabel": "Adresse e-mail",
+    "nameLabel": "Nom & Prénom",
+    "messageLabel": "Message",
+    "submitButton": "Envoyer"
+  },
+
+  
+"footer": {
+  "ConditionsGenerales":"Conditions Generales",
+  "PolitiqueConfidentialite":"Politique Confidentialite",
+    "Informations": "Informations",
+    "Accueil": "Accueil",
+    "APropos": "À Propos",
+    "Produits": "Produits",
+    "Services": "Services",
+    "LiensUtiles": "Liens Utiles",
+    "Devis": {
+      "title": " Devis",
+      "description": "Chez COGEB, nous comprenons que chaque projet est unique et nécessite une approche personnalisée. C'est pourquoi nous offrons un service de calcul de devis sur mesure pour répondre précisément à vos besoins. Que vous soyez un particulier, un professionnel de la construction, ou un entrepreneur, nous sommes là pour vous fournir des estimations détaillées et précises. Notre équipe d'experts est disponible pour vous guider à travers le processus de sélection des matériaux, des quantités nécessaires, et des options les plus adaptées à votre projet. Nous vous garantissons des devis compétitifs, transparents, et livrés dans les meilleurs délais. Faites-nous confiance pour vous accompagner dans la réalisation de vos projets, quels que soient leur envergure ou leur complexité."
+    },
+    "Confidentialite": {
+      "title": "Confidentialité",
+      "description": "Chez COGEB, la protection de vos données personnelles est une priorité absolue. Nous nous engageons à respecter votre vie privée et à traiter vos informations avec le plus grand soin. Notre politique de confidentialité explique en détail comment nous collectons, utilisons, et protégeons les informations que vous nous fournissez. Que vous nous contactiez pour un devis, que vous vous inscriviez à notre newsletter, ou que vous effectuiez un achat, soyez assuré que vos données sont sécurisées. Nous utilisons des technologies de pointe pour protéger vos informations contre tout accès non autorisé et nous nous engageons à ne jamais vendre, échanger, ou louer vos données personnelles à des tiers. Notre engagement en matière de confidentialité est une promesse que nous tenons à chaque étape de notre relation avec vous."
+    },
+    "Support": {
+      "title": "Support et Conseils",
+      "description": "Chez COGEB, nous croyons que le succès de votre projet repose sur un accompagnement de qualité. C'est pourquoi nous offrons un service de support complet, conçu pour répondre à toutes vos questions et vous fournir les conseils dont vous avez besoin. Notre équipe de support est composée de professionnels expérimentés, prêts à vous assister à chaque étape de votre projet. Que vous ayez besoin d'aide pour choisir les matériaux les plus appropriés, d'informations techniques, ou de conseils sur les meilleures pratiques, nous sommes là pour vous guider. Nous nous engageons à fournir un support rapide, efficace, et personnalisé, afin de vous aider à surmonter tous les défis que vous pourriez rencontrer. Chez COGEB, votre satisfaction est notre priorité, et nous mettons tout en œuvre pour assurer le succès de vos projets."
+    }
+  },
+  "latestProperty": {
+    "recommended": "Les plus recommandés",
+    "premiumProducts": "Produits Premium",
+    "description": "Découvrez notre sélection de produits premium, soigneusement choisis pour leur qualité exceptionnelle",
+    "noImage": "Image non disponible",
+    "premium": "Premium",
+    "addToCart": "Ajouter au panier"
+  },
+  "testimonials": {
+    "title": "Témoignages",
+    "subtitle": "Regardez ce que nos clients disent !",
+    "description": "Nos clients apprécient la qualité exceptionnelle de nos produits et services.",
+    "quote": "Extrêmement satisfaits des services de COGEB Groupe, dont l'expertise et le professionnalisme ont dépassé toutes nos attentes",
+    "clientName": "Client Cogeb"
+  },
+  "products": {
+    "title": "Nos Produits",
+    "subtitle": "Sélection de produits",
+    "description": "Découvrez notre vaste gamme de produits, soigneusement sélectionnés pour répondre à tous vos besoins.",
+    "dimensions": "Les dimensions disponibles pour le Grés sont : 60*120, 60*60, 30*60, 20*60.",
+    "imageNotAvailable": "Image non disponible",
+    "premium": "Premium",
+    "addToCart": "Ajouter au",
+    "addedToCart": "Produit ajouté au panier",
+    "product": "Produit",
+    "details": "Détails"
+  },
+  "pagination": {
+    "previous": "Précédent",
+    "next": "Suivant",
+    "page": "Page",
+    "of": "sur"
+  },
+  "error": {
+    "cartNotFound": "ID du panier introuvable"
+  },
+
+
+  
+
+
+
+    "catalogues": {
+      "title": "NOS CATALOGUES",
+      "subtitle": "Choisir vos désirs",
+      "detailsButton": "Plus de Détails"
+    },
+    "categories": {
+      "grès": {
+        "title": "GRÈS",
+        "description": "Découvrez notre sélection de carrelages en grès, parfaits pour chaque espace."
+      },
+      "faience": {
+        "title": "FAÏENCE",
+        "description": "Explorez nos carrelages en faïence de haute qualité pour une finition élégante."
+      },
+      "robinet": {
+        "title": "ROBINETTERIE",
+        "description": "Découvrez nos robinets de qualité, alliant design et fonctionnalité."
+      },
+      "sanitaire": {
+        "title": "SANITAIRE",
+        "description": "Cogeb est l'un des leaders d'importation de grès Faïences et articles sanitaires en tout genre, Soit la Robinetterie , et les accessoires de salle de bain des grandes marques sur le marché mondial dont la Marque Rak Navarti, Porcelanosa et autres.Pensant aussi aux petits budgets notre société offre aussi des articles locaux des meilleurs fournisseurs tunisiens Édifis, Somocer, et autres , et ce afin de garantir les produits sanitaires à tous les goûts et tous les pouvoirs d'achats" ,
+        "suppliers": [
+          "/assets/logosanit1.png",
+          "/assets/logosanit2.png",
+          "/assets/logosanit3.png",
+          "/assets/logosanit4.png",
+          "/assets/logosanit5.png",
+          "/assets/logosanit6.png",
+          "/assets/logosanit7.png",
+          "/assets/logosanit8.png"
+        ]
+      },
+      "tous": {
+        "title": "TOUS LES PRODUITS",
+        "description": "Découvrez l'ensemble de nos produits dans toutes les catégories disponibles."
+      },
+      "modal": {
+        "description": "Cogeb est l'un des leaders d'importation de grès Faïences et articles sanitaires en tout genre, Soit la Robinetterie , et les accessoires de salle de bain des grandes marques sur le marché mondial dont la Marque Rak Navarti, Porcelanosa et autres.Pensant aussi aux petits budgets notre société offre aussi des articles locaux des meilleurs fournisseurs tunisiens Édifis, Somocer, et autres , et ce afin de garantir les produits sanitaires à tous les goûts et tous les pouvoirs d'achats"
+      }
+    }
+  ,
+  "CartIcon": {
+    "cartTitle": "Panier",
+    "requestQuote": "Devis",
+    "userInfo": "Informations utilisateur",
+    "name": "Nom",
+    "surname": "Prénom",
+    "email": "Email",
+    "phone": "Numéro de téléphone",
+    "message": "Message",
+    "send": "Envoyer",
+    "success": {
+      "title": "Envoyé!",
+      "message": "Votre demande de devis a été envoyée avec succès."
+    },
+    "errors": {
+      "nameRequired": "Nom requis",
+      "surnameRequired": "Prénom requis",
+      "emailRequired": "Email requis",
+      "invalidEmail": "Email invalide : il faut la forme ****@****",
+      "phoneRequired": "Numéro de téléphone requis",
+      "invalidPhone": "Numéro de téléphone: il doit contenir 8 chiffres",
+      "messageRequired": "Message requis"
+    }
+  }
+
+ 
+
+}
+  
+  

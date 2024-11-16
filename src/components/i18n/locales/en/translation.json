@@ -1,0 +1,214 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "services": "Services",
+    "testimonials": "Testimonials",
+    "address":"COGEB, Avenue Hedi Nouira 4003 - Sousse - Tunisie"
+
+  },
+
+"hero": {
+    "title1": "EXCELLENCE IN",
+    "title2": "EVERY DROP OF WATER"
+  },
+  "suppliers": "OUR SUPPLIERS",
+
+
+
+
+"Real_estate": {
+  "group": "Our Group"
+},
+
+  "about": "ABOUT",
+  "who_are_we": "Who are we?",
+  "founded": "Founded in 1980, COGEB specializes in the sale of sanitary products. A leader in its field, it offers various products meeting the needs of professionals and individuals.",
+  "excellence": "COGEB excels in the sale of sanitary articles, faucets, and accessories. Combining quality and diversity, it offers a wide range of products, from affordable to luxury, in partnership with recognized brands.",
+  "showrooms": "With modern showrooms and a large stock, COGEB provides a unique experience. Its competent and dedicated team guarantees personalized service, catering to the specific needs of each project."
+,
+
+"Neighborhood_properties": {
+  "title": "OUR CATALOGS",
+  "subtitle": "Choose Your Desires",
+  "productTypes": {
+    "Fer": "IRON",
+    "Ciment": "CEMENT",
+    "Brique": "BRICK",
+    "Tous": "ALL PRODUCTS"
+  }
+},
+"services_title": "Our Services",
+"services_description": "We offer a range of personalized services to meet your specific needs, ensuring exceptional quality and satisfaction.",
+"sales": "Sales",
+"sales_description": "COGEB offers a wide range of construction products, including wood and sanitary articles, to meet all needs.",
+"customer_advice": "Customer Advice",
+"customer_advice_description": "Our experts guide you in choosing products suitable for your projects, taking into account your needs and budget.",
+"transport": "Transport",
+"transport_description": "COGEB ensures reliable transportation so that your products arrive on time and in good condition.",
+
+
+
+"testimonials_title": "Testimonials",
+"testimonials_subtitle": "See what our clients say!",
+"testimonials_description": "Our clients appreciate the exceptional quality of our products and services.",
+"testimonial_text": "Extremely satisfied with the services of COGEB Group, whose expertise and professionalism exceeded all our expectations",
+"testimonial_client": "COGEB Client",
+
+
+"become_agent_title": "COGEB Client.",
+"become_agent_description": "Stay informed about our latest news and exclusive offers by subscribing to our newsletter.",
+"become_agent_button": "Sign up now",
+
+
+"formDialog": {
+  "fillAllFields": "Please fill in all the fields.",
+  "successTitle": "Success!",
+  "successText": "Form successfully submitted!",
+  "errorTitle": "Error!",
+  "errorText": "Error while submitting the form.",
+  "okButton": "OK",
+  "emailLabel": "Email Address",
+  "nameLabel": "Name & Surname",
+  "messageLabel": "Message",
+  "submitButton": "Send"},
+  "footer": {
+    "ConditionsGenerale":"General Conditions",
+    "PolitiqueConfidentialite":"Privacy Policy",
+    "Informations": "Information",
+    "Accueil": "Home",
+    "APropos": "About",
+    "Produits": "Products",
+    "Services": "Services",
+    "LiensUtiles": "Useful Links",
+    "Devis": {
+      "title": "Quote",
+      "description": "At COGEB, we understand that each project is unique and requires a personalized approach. That's why we offer a tailored quotation service to meet your specific needs. Whether you are an individual, a construction professional, or a contractor, we are here to provide you with detailed and accurate estimates. Our team of experts is available to guide you through the process of selecting materials, necessary quantities, and the best options for your project. We guarantee competitive, transparent quotes delivered in a timely manner. Trust us to support you in the realization of your projects, regardless of their size or complexity."
+    },
+    "Confidentialite": {
+      "title": "Privacy ",
+      "description": "At COGEB, protecting your personal data is our top priority. We are committed to respecting your privacy and handling your information with the utmost care. Our privacy policy explains in detail how we collect, use, and protect the information you provide. Whether you contact us for a quote, sign up for our newsletter, or make a purchase, rest assured that your data is secure. We use state-of-the-art technologies to protect your information from unauthorized access, and we are committed never to sell, trade, or rent your personal data to third parties. Our commitment to privacy is a promise we uphold at every stage of our relationship with you."
+    },
+    "Support": {
+      "title": "Support and Advice",
+      "description": "At COGEB, we believe that the success of your project relies on quality support. That's why we offer a comprehensive support service designed to answer all your questions and provide the advice you need. Our support team is made up of experienced professionals, ready to assist you at every stage of your project. Whether you need help choosing the right materials, technical information, or advice on best practices, we are here to guide you. We are committed to providing quick, efficient, and personalized support to help you overcome any challenges you may face. At COGEB, your satisfaction is our priority, and we are dedicated to ensuring the success of your projects."
+    }
+  },
+  "latestProperty": {
+    "recommended": "Top Recommended",
+    "premiumProducts": "Premium Products",
+    "description": "Explore our selection of premium products, carefully chosen for their exceptional quality",
+    "noImage": "Image not available",
+    "premium": "Premium",
+    "addToCart": "Add to Cart"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "See what our customers are saying!",
+    "description": "Our clients value the exceptional quality of our products and services.",
+    "quote": "Extremely satisfied with the services of COGEB Group, whose expertise and professionalism exceeded all our expectations",
+    "clientName": "Cogeb Client"
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Product Selection",
+    "description": "Discover our wide range of products, carefully selected to meet all your needs.",
+    "dimensions": "Available dimensions for Grès are: 60*120, 60*60, 30*60, 20*60.",
+    "imageNotAvailable": "Image not available",
+    "premium": "Premium",
+    "addToCart": "Add to",
+    "addedToCart": "Product added to cart",
+    "product": "Product",
+    "details": "Details"
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "of": "of"
+  },
+  "error": {
+    "cartNotFound": "Cart ID not found"
+  },
+
+
+  
+  
+
+
+
+    "catalogues": {
+      "title": "OUR CATALOGUES",
+      "subtitle": "Choose your desires",
+      "detailsButton": "More Details"
+    },
+    "categories": {
+      "grès": {
+        "title": "STONEWARE",
+        "description": "Discover our selection of stoneware tiles, perfect for every space."
+      },
+      "faience": {
+        "title": "TILES",
+        "description": "Explore our high-quality tiles for a stylish finish."
+      },
+      "robinet": {
+        "title": "TAPS",
+        "description": "Discover our taps combining design and functionality."
+      },
+      "sanitaire": {
+        "title": "SANITARY",
+        "description": "Cogeb is one of the leaders in the importation of stoneware, earthenware and sanitary ware of all kinds, namely taps and bathroom accessories from major brands on the world market, including Rak Navarti, Porcelanosa and others. Also thinking of small budgets, our company also offers local items from the best Tunisian suppliers Edifis, Somocer, and others, in order to guarantee sanitary products for all tastes and all purchasing powers",
+        "suppliers": [
+          "/assets/logosanit1.png",
+          "/assets/logosanit2.png",
+          "/assets/logosanit3.png",
+          "/assets/logosanit4.png",
+          "/assets/logosanit5.png",
+          "/assets/logosanit6.png",
+          "/assets/logosanit7.png",
+          "/assets/logosanit8.png"
+        ]
+      },
+      "tous": {
+        "title": "ALL PRODUCTS",
+        "description": "Explore our entire product range across all available categories."
+      },
+      "modal": {
+    "sanitaire": {
+      "title": "SANITAIRE",
+      "description": "Cogeb is one of the leaders in the importation of stoneware, earthenware and sanitary ware of all kinds, namely taps and bathroom accessories from major brands on the world market, including Rak Navarti, Porcelanosa and others. Also thinking of small budgets, our company also offers local items from the best Tunisian suppliers Edifis, Somocer, and others, in order to guarantee sanitary products for all tastes and all purchasing powers",
+      "suppliers": "Nos fournisseurs"
+    }
+  }
+    },
+    "CartIcon": {
+      "cartTitle": "Cart",
+      "requestQuote": "Request Quote",
+      "userInfo": "User Information",
+      "name": "Name",
+      "surname": "Surname",
+      "email": "Email",
+      "phone": "Phone Number",
+      "message": "Message",
+      "send": "Send",
+      "success": {
+        "title": "Sent!",
+        "message": "Your quote request has been successfully sent."
+      },
+      "errors": {
+        "nameRequired": "Name required",
+        "surnameRequired": "Surname required",
+        "emailRequired": "Email required",
+        "invalidEmail": "Invalid email format: ****@****",
+        "phoneRequired": "Phone number required",
+        "invalidPhone": "Phone number should contain 8 digits",
+        "messageRequired": "Message required"
+      }
+    }
+
+
+
+
+  }
+  

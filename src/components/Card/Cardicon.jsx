@@ -1,7 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';  
-import { Modal, Box, Typography, TextField, Button, Badge, List, ListItem, ListItemText, IconButton } from '@mui/material';
+import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import {  Modal, Box, Typography, TextField, Button, Badge, List, ListItem, ListItemText, IconButton } from '@mui/material';
 import { MdShoppingCart } from "react-icons/md";
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import DoDisturbOnOutlinedIcon from '@mui/icons-material/DoDisturbOnOutlined';
@@ -11,10 +11,12 @@ import { getCarttwo, updateCartWithUserInfo, removeItemFromCart, updateItemQuant
 import { styled } from '@mui/material/styles';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { useMediaQuery } from '@mui/material';
 
 const MySwal = withReactContent(Swal);
 
 function CartIcon() {
+    const { t } = useTranslation();
     const [modalOpen, setModalOpen] = useState(false);
     const [userInfoModalOpen, setUserInfoModalOpen] = useState(false);
     const [userInfo, setUserInfo] = useState({
@@ -22,14 +24,13 @@ function CartIcon() {
         surname: '',
         email: '',
         phoneNumber: '',
-        message: '',
-        remarque:''
+        message: ''
     });
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
     const carttwo = useSelector(state => state.carttwo.carttwo || { items: [] });
-
     const [itemQuantities, setItemQuantities] = useState({});
+    const isLargeScreen = useMediaQuery('(min-width:1280px)');
 
     useEffect(() => {
         const cartId = localStorage.getItem('cartId');
@@ -39,16 +40,6 @@ function CartIcon() {
             dispatch(createNewCart());
         }
     }, [dispatch]);
-
-    // useEffect(() => {
-    //     if (carttwo && carttwo.items) {
-    //         const updatedQuantities = {};
-    //         carttwo.items.forEach(item => {
-    //             updatedQuantities[item._id] = item.quantity;
-    //         });
-    //         setItemQuantities(updatedQuantities);
-    //     }
-    // }, [carttwo.items]);
 
     useEffect(() => {
         if (carttwo && carttwo.items) {
@@ -67,11 +58,15 @@ function CartIcon() {
             }
         }
     }, [carttwo.items]);
+
+
+
     const handleOpenModal = () => {
         const cartId = localStorage.getItem('cartId');
         dispatch(getCarttwo(cartId));
         setModalOpen(true);
     };
+
 
     const handleCloseModal = () => {
         setModalOpen(false);
@@ -91,19 +86,19 @@ function CartIcon() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneRegex = /^[0-9]{8}$/;
 
-        if (!userInfo.name) newErrors.name = 'Nom requis';
-        if (!userInfo.surname) newErrors.surname = 'Prénom requis';
+        if (!userInfo.name) newErrors.name = t('CartIcon.errors.nameRequired');
+        if (!userInfo.surname) newErrors.surname = t('CartIcon.errors.surnameRequired');
         if (!userInfo.email) {
-            newErrors.email = 'Email requis';
+            newErrors.email = t('CartIcon.errors.emailRequired');
         } else if (!emailRegex.test(userInfo.email)) {
-            newErrors.email = 'Email invalide : il faut la forme ****@****';
+            newErrors.email = t('CartIcon.errors.invalidEmail');
         }
         if (!userInfo.phoneNumber) {
-            newErrors.phoneNumber = 'Numéro de téléphone requis';
+            newErrors.phoneNumber = t('CartIcon.errors.phoneRequired');
         } else if (!phoneRegex.test(userInfo.phoneNumber)) {
-            newErrors.phoneNumber = 'Numéro de téléphone: il doit contient 8 chiffres';
+            newErrors.phoneNumber = t('CartIcon.errors.invalidPhone');
         }
-        
+        if (!userInfo.message) newErrors.message = t('CartIcon.errors.messageRequired');
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -113,7 +108,6 @@ function CartIcon() {
         if (!validateForm()) return;
 
         const cartId = localStorage.getItem('cartId');
-    
         try {
             await dispatch(updateCartWithUserInfo(cartId, userInfo));
             handleCloseUserInfoModal();
@@ -121,24 +115,20 @@ function CartIcon() {
             localStorage.removeItem('cartItems');
             dispatch(createNewCart());
 
-            // Show success alert
             MySwal.fire({
                 icon: 'success',
-                title: 'Envoyé!',
-                text: 'Votre demande de devis a été envoyée avec succès.',
+                title: t('CartIcon.success.title'),
+                text: t('CartIcon.success.message'),
                 confirmButtonColor: '#1D8D7F'
             });
 
-            // Clear user info fields
             setUserInfo({
                 name: '',
                 surname: '',
                 email: '',
                 phoneNumber: '',
-                message: '',
-                remarque:''
+                message: ''
             });
-
         } catch (error) {
             console.error('Failed to update cart:', error);
         }
@@ -148,31 +138,15 @@ function CartIcon() {
         const { name, value } = e.target;
         setUserInfo({ ...userInfo, [name]: value });
     };
-
     const handleIncreaseQuantity = (itemId) => {
         const cartId = localStorage.getItem('cartId');
         const newQuantity = (itemQuantities[itemId] || 0) + 1;
         setItemQuantities({ ...itemQuantities, [itemId]: newQuantity });
         dispatch(updateItemQuantity(cartId, itemId, newQuantity));
     };
-    
-    // const handleDecreaseQuantity = (itemId) => {
-    //     const cartId = localStorage.getItem('cartId');
-    //     if (itemQuantities[itemId] > 1) {
-    //         const newQuantity = itemQuantities[itemId] - 1;
-    //         setItemQuantities({ ...itemQuantities, [itemId]: newQuantity });
-    //         dispatch(updateItemQuantity(cartId, itemId, newQuantity));
-    //     } else {
-    //         const newItems = { ...itemQuantities };
-    //         delete newItems[itemId];
-    //         setItemQuantities(newItems);
-    //         dispatch(removeItemFromCart(carttwo._id, itemId));
-    //     }
-    //     dispatch(getCarttwo(cartId));
-    // };
     const handleDecreaseQuantity = async (itemId) => {
         const cartId = localStorage.getItem('cartId');
-    
+
         if (itemQuantities[itemId] > 1) {
             const newQuantity = itemQuantities[itemId] - 1;
             setItemQuantities({ ...itemQuantities, [itemId]: newQuantity });
@@ -184,39 +158,20 @@ function CartIcon() {
             await dispatch(removeItemFromCart(carttwo._id, itemId));
         }
     
-        // Fetch the updated cart after the operation
         dispatch(getCarttwo(cartId));
     };
-
-    // const handleRemoveItem = (itemId) => {
-    //     const cartId = localStorage.getItem('cartId');
-    //     dispatch(removeItemFromCart(carttwo._id, itemId));
-    //     setItemQuantities(prevQuantities => {
-    //         const newQuantities = { ...prevQuantities };
-    //         delete newQuantities[itemId];
-    //         return newQuantities;
-    //     });
-    //     dispatch(getCarttwo(cartId));
-    // };
-
     const handleRemoveItem = async (itemId) => {
         const cartId = localStorage.getItem('cartId');
         
-        // Remove the item from the cart
         await dispatch(removeItemFromCart(carttwo._id, itemId));
         
-        // Update local state
         setItemQuantities(prevQuantities => {
             const newQuantities = { ...prevQuantities };
             delete newQuantities[itemId];
             return newQuantities;
         });
-    
-        // Fetch the updated cart
-        dispatch(getCarttwo(cartId));
+            dispatch(getCarttwo(cartId));
     };
-
-
     const handleManualQuantityChange = (itemId, value) => {
         const cartId = localStorage.getItem('cartId');
         const newQuantity = parseInt(value, 10);
@@ -226,7 +181,6 @@ function CartIcon() {
             dispatch(updateItemQuantity(cartId, itemId, newQuantity));
         }
     };
-    
 
     const modalStyle = {
         position: 'absolute', 
@@ -250,8 +204,6 @@ function CartIcon() {
             width: '90%', // 50% de la largeur pour les appareils de 1024px ou moins
         }
     };
-    
-
     const StyledBadge = styled(Badge)(({ theme }) => ({
         '& .MuiBadge-badge': {
             backgroundColor: '#ffd700', 
@@ -268,13 +220,13 @@ function CartIcon() {
         <>
             <div className="cart-icon-fixed" onClick={handleOpenModal}>
                 <StyledBadge badgeContent={carttwo ? carttwo.items.length : 0}>
-                    <MdShoppingCart  style={{ color: '#6e9686', fontSize: 25 }} />
+                    <MdShoppingCart style={{ color: '#6e9686', fontSize: 25 }} />
                 </StyledBadge>
             </div>
             <Modal open={modalOpen} onClose={handleCloseModal} aria-labelledby="cart-modal-title" aria-describedby="cart-modal-description">
                 <Box sx={modalStyle}>
-                    <Typography id="cart-modal-title" variant="h6" component="h2" className="goldenCursiveText" style={{ color: "grey" }}>
-                        Panier 
+                <Typography id="cart-modal-title" variant="h6" component="h2" className="goldenCursiveText" style={{ color: "grey" }}>
+                {t('CartIcon.cartTitle')}
                     </Typography>
                     <List sx={{ width: '100%', maxHeight: 200, overflow: 'auto', color: 'black' }}>
                         {carttwo.items && carttwo.items.map((item) => {
@@ -343,18 +295,23 @@ function CartIcon() {
                             );
                         })}
                     </List>
+
+
+
+
+                    {/* Liste des articles et boutons */}
                     <Button onClick={handleOpenUserInfoModal} variant="contained" sx={{
                         mt: 2, backgroundColor: '#fbfbfb', color: '#ce9d29',
                         fontSize: '15px', borderRadius: '20px',
                         '&:hover': { backgroundColor: '#ce9d29', color: '#fbfbfb' }
                     }}>
-                        Devis 
+                        {t('CartIcon.requestQuote')} 
                     </Button>
                 </Box>
             </Modal>
             <Modal open={userInfoModalOpen} onClose={handleCloseUserInfoModal}>
                 <Box component="form" onSubmit={handleSubmit} sx={modalStyle}>
-                    <List sx={{ width: '100%', maxHeight: 200, overflow: 'auto', color: 'black' }}>
+                <List sx={{ width: '100%', maxHeight: 200, overflow: 'auto', color: 'black' }}>
                         {carttwo.items && carttwo.items.map((item) => {
                             const quantity = itemQuantities[item._id] || item.quantity;
                             return (
@@ -382,59 +339,57 @@ function CartIcon() {
                             );
                         })}
                     </List>
-                    <Box sx={{ width: '95%', borderBottom: '1px solid gray'}} /> 
+
+                    <Box sx={{ width: '90%', borderBottom: '1px solid gray'}} /> 
                     <List sx={{ width: '100%', maxHeight: 500, overflow: 'auto', color: 'black' }}>
+
+
+
                     <Typography id="cart-modal-title" variant="h6" component="h2" sx={{ color: 'gray' }}>
-                        Informations utilisateur
+                        {t('CartIcon.userInfo')}
                     </Typography>
-                    <TextField 
-                        label="Nom" 
-                        variant="outlined" 
+
+                    <TextField label={t('CartIcon.name')}
+                      variant="outlined" 
                         name="name" 
                         value={userInfo.name} 
                         onChange={handleUserInfoChange} 
                         fullWidth 
                         sx={{ mt: 2 }} 
                         error={!!errors.name} 
-                        helperText={errors.name} 
-                    />
-                    <TextField 
-                        label="Prénom" 
-                        variant="outlined" 
+                        helperText={errors.name} />
+                    <TextField label={t('CartIcon.surname')} 
+                    variant="outlined" 
                         name="surname" 
                         value={userInfo.surname} 
                         onChange={handleUserInfoChange} 
                         fullWidth 
                         sx={{ mt: 2 }} 
                         error={!!errors.surname} 
-                        helperText={errors.surname} 
-                    />
-                    <TextField 
-                        label="Email" 
-                        variant="outlined" 
+                        helperText={errors.surname}  />
+                    <TextField label={t('CartIcon.email')}
+                    variant="outlined" 
                         name="email" 
                         value={userInfo.email} 
                         onChange={handleUserInfoChange} 
                         fullWidth 
                         sx={{ mt: 2 }} 
                         error={!!errors.email} 
-                        helperText={errors.email} 
-                    />
-                    <TextField 
-                        label="Numéro de téléphone" 
-                        variant="outlined" 
+                        helperText={errors.email}  />
+
+                    <TextField label={t('CartIcon.phone')}
+                     variant="outlined" 
                         name="phoneNumber" 
                         value={userInfo.phoneNumber} 
                         onChange={handleUserInfoChange} 
                         fullWidth 
                         sx={{ mt: 2 }} 
                         error={!!errors.phoneNumber} 
-                        helperText={errors.phoneNumber} 
-                    />
+                        helperText={errors.phoneNumber}  />
                     <Typography variant="body1" sx={{ color: '#36454F' }}>
     Les dimensions disponibles pour le Grès sont : 60x120, 60x60, 30x60, 20x60. Veuillez indiquer vos désirs.
 </Typography>
-                      <TextField 
+<TextField 
                         label="Dimensions souhaités" 
                         variant="outlined" 
                         name="remarque" 
@@ -444,9 +399,8 @@ function CartIcon() {
                         sx={{ mt: 2 }} 
                      
                     />
-                    <TextField 
-                        label="Message" 
-                        variant="outlined" 
+                    <TextField label={t('CartIcon.message')}
+                     variant="outlined" 
                         name="message" 
                         multiline rows={4} 
                         value={userInfo.message} 
@@ -455,14 +409,15 @@ function CartIcon() {
                         sx={{ mt: 2 }} 
                         error={!!errors.message} 
                         helperText={errors.message} 
-                    />
-                    <Button type="submit" variant="contained" sx={{
+/>
+<Button type="submit" variant="contained" sx={{
                         mt: 2, backgroundColor: '#fbfbfb', color: '#ce9d29',
                         fontSize: '15px', borderRadius: '20px',
                         '&:hover': { backgroundColor: '#ce9d29', color: '#fbfbfb' }
                      }}
-                     > Envoyer <SendIcon sx={{ ml:1}}/> </Button>
-                      </List>
+                     >{t('CartIcon.send')} <SendIcon sx={{ ml:1}} />
+                    </Button>
+                    </List>
                 </Box>
             </Modal>
         </>

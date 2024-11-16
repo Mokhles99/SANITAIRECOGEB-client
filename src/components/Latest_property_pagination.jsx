@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next'; // Import pour les traductions
 import { getProductById } from '../actions/product.actions';
 import { addToCarttwo } from '../actions/carttwo.actions'; 
 import { FaStar } from "react-icons/fa";
@@ -7,6 +8,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import { AiOutlineCheckCircle } from "react-icons/ai";
+
 const modalStyle = {
   position: 'absolute',
   top: '50%',
@@ -21,6 +23,7 @@ const modalStyle = {
   p: 4,
   textAlign: 'center',
 };
+
 const confirmationModalStyle = {
   position: 'absolute',
   top: '20%',
@@ -40,15 +43,17 @@ const confirmationModalStyle = {
 };
 
 const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
+  const { t } = useTranslation(); // Utilisation des traductions
   const dispatch = useDispatch();
   const selectedProduct = useSelector((state) => state.product.product);
   const [currentPage, setCurrentPage] = useState(0);
   const [filteredProducts, setFilteredProducts] = useState(products);
   const itemsPerPage = 8;
   const [open, setOpen] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
   useEffect(() => {
-    setFilteredProducts(products); // Initialize with all products
+    setFilteredProducts(products); // Initialiser avec tous les produits
   }, [products]);
 
   const handleFilterByType = (type) => {
@@ -57,19 +62,18 @@ const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
     } else {
       setFilteredProducts(products.filter(product => product.type === type));
     }
-    setCurrentPage(0); // Reset to the first page
+    setCurrentPage(0); // Réinitialiser à la première page
   };
 
   const handleAddToCart = (productId) => {
     const cartIdFromStorage = localStorage.getItem('cartId');
     if (!cartIdFromStorage) {
-      console.error("Cart ID is not found in localStorage");
+      console.error(t("error.cartNotFound"));
       return;
     }
     dispatch(addToCarttwo(cartIdFromStorage, productId, 1));
-
     setShowConfirmationModal(true);
-    
+
     // Masquer le modal après 2 secondes
     setTimeout(() => {
       setShowConfirmationModal(false);
@@ -97,8 +101,6 @@ const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
   const selectedProducts = filteredProducts.slice(startIndex, startIndex + itemsPerPage);
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
-
-  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   return (
     <div className="container mx-auto px-3">
       <div className="lg:flex justify-between items-center">
@@ -107,38 +109,23 @@ const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
               fontFamily: "'Playfair Display', serif",
               letterSpacing: "0.3em",
               marginTop:"10rem"
-            }}>Nos produits</h1>
+            }}>{t("products.title")}</h1>
           <h1 className="lg:text-4xl text-xl font-medium capitalize py-3" style={{
               fontFamily: "'Playfair Display', serif",
             }}>
-            Sélection de produits
+            {t("products.subtitle")}
           </h1>
           <p className="text-[#808080] lg:text-base text-sm lg:w-3/5" style={{
               fontFamily: "'Playfair Display', serif",
             }}>
-            Découvrez notre vaste gamme de produits, soigneusement sélectionnés pour répondre à tous vos besoins
+            {t("products.description")}
           </p>
-          {/* <p className="text-[#808080] lg:w-3/5" style={{
-  fontFamily: "'Playfair Display', serif",
-  fontSize: '1.1rem'  // Ajustez la taille comme vous le souhaitez
-}}>
-  Les dimensions disponibles pour le Grés sont : 
-  <strong><u>60*120</u></strong>&nbsp;&nbsp;
-  <strong><u>60*60</u></strong>&nbsp;&nbsp;
-  <strong><u>30*60</u></strong>&nbsp;&nbsp;
-  <strong><u>20*60</u></strong>
-</p> */}
-<p className="text-[#1e90ff] font-bold lg:w-3/5" style={{
-  fontFamily: "'Playfair Display', serif",
-  fontSize: '1.1rem'  // Ajustez la taille comme vous le souhaitez
-}}>
-  Les dimensions disponibles pour le Grés sont : 
-  <strong><u>60*120</u></strong>&nbsp;&nbsp;
-  <strong><u>60*60</u></strong>&nbsp;&nbsp;
-  <strong><u>30*60</u></strong>&nbsp;&nbsp;
-  <strong><u>20*60</u></strong>
-</p>
-
+          <p className="text-[#1e90ff] font-bold lg:w-3/5" style={{
+            fontFamily: "'Playfair Display', serif",
+            fontSize: '1.1rem'
+          }}>
+            {t("products.dimensions")}
+          </p>
         </div>
         {activeTypes.length > 0 && (
           <div className="grid grid-cols-3 gap-3 lg:w-2/5 lg:pt-0 pt-6">
@@ -156,56 +143,38 @@ const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
       </div>
 
       <section className="mt-8">
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"> */}
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12"> */}
-        {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12"> */}
-             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-12">
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {selectedProducts.map((product, index) => (
             <div key={index} className="shadow-lg rounded-3xl" onClick={() => handleProductClick(product._id)}>
               <div className="relative h-80 w-full rounded-3xl">
-                {/* <img
-                  src={product.files[0]?.url}
-                  alt={product.name}
-                  className="rounded-t-3xl h-full w-full object-cover"
-                /> */}
-                  {product.files && product.files.length > 0 ? (
-                 <img
-          src={product.files[0].url}
-          alt={product.name}
-          className="rounded-t-3xl h-full w-full object-cover"
-        />
-      ) : (
-        <div className="h-full w-full flex items-center justify-center bg-gray-200 rounded-t-3xl">
-          <p className="text-gray-500">Image non disponible</p>
-        </div>
-      )}
+                {product.files && product.files.length > 0 ? (
+                  <img
+                    src={product.files[0].url}
+                    alt={product.name}
+                    className="rounded-t-3xl h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="h-full w-full flex items-center justify-center bg-gray-200 rounded-t-3xl">
+                    <p className="text-gray-500">{t("products.imageNotAvailable")}</p>
+                  </div>
+                )}
                 {product.categorie === 'Premium' && (
-              <button className="px-3 py-1 flex gap-x-1 items-center text-[#119bff] bg-[#d7eeff] rounded-full absolute bottom-10 left-10 text-sm">
-              <FaStar className="text-xs" />
-              Premium
-            </button>
-            
+                  <button className="px-3 py-1 flex gap-x-1 items-center text-[#119bff] bg-[#d7eeff] rounded-full absolute bottom-10 left-10 text-sm">
+                    <FaStar className="text-xs" />
+                    {t("products.premium")}
+                  </button>
                 )}
               </div>
               <div className="bg-gray-190 p-4 rounded-3xl">
                 <span className="flex flex-col gap-y-1 py-4">
                   <p className="text-2xl font-medium text-gray-700">{product.name}</p>
                   <p className="text-lg font-medium text-gray-700">{product.description}</p>
-                  <p className="text-sm text-gray-700">{product.location}</p>
                   <button 
                     onClick={() => handleAddToCart(product._id)} 
-                    className="mt-2 py-2 bg-[#ACB1AE] text-white rounded-full hover:bg[#019834]"
-                    style={{ 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      justifyContent: 'center', 
-                      textAlign: 'center', 
-                      margin: '0 auto', 
-                      width: '45%' 
-                    }}
+                    className="mt-2 py-2 bg-[#ACB1AE] text-white rounded-full hover:bg-[#019834]"
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', margin: '0 auto', width: '45%' }}
                   >
-                    Ajouter au <MdOutlineShoppingCart style={{ marginLeft: '8px' }} />
+                    {t("products.addToCart")} <MdOutlineShoppingCart style={{ marginLeft: '8px' }} />
                   </button>
                 </span>
               </div>
@@ -218,58 +187,45 @@ const LatestPropertyWithPagination = ({ products = [], activeTypes = [] }) => {
             className="text-[#001F75] rounded-full border border-[#001F75] px-3 py-2 focus:bg-[#001F75] focus:text-white mr-2"
             disabled={currentPage === 0}
           >
-            Précédent
+            {t("pagination.previous")}
           </button>
-          <span className="mx-2">Page {currentPage + 1} sur {totalPages}</span>
+          <span className="mx-2">
+            {t("pagination.page")} {currentPage + 1} {t("pagination.of")} {totalPages}
+          </span>
           <button
             onClick={handleNextPage}
             className="text-[#001F75] rounded-full border border-[#001F75] px-6 py-2 focus:bg-[#001F75] focus:text-white"
             disabled={startIndex + itemsPerPage >= filteredProducts.length}
           >
-            Suivant
+            {t("pagination.next")}
           </button>
         </div>
       </section>
 
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+      {/* Modals */}
+      <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle}>
           {selectedProduct && (
             <>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img
-  src={selectedProduct?.files?.[0]?.url || ''}
-  alt={selectedProduct?.name || 'Image not available'}
-  style={{ width: '40%', marginRight: '20px', borderRadius: '30px' }}
-/>
-
+                <img
+                  src={selectedProduct?.files?.[0]?.url || ''}
+                  alt={selectedProduct?.name || t("products.imageNotAvailable")}
+                  style={{ width: '40%', marginRight: '20px', borderRadius: '30px' }}
+                />
                 <div style={{ textAlign: 'left' }}>
-                  <h2 id="modal-modal-title">
-                    <span style={{ color: 'gold', fontWeight: 'bold' }}>Produit:</span>
-                    <span style={{ color: 'silver' }}>{selectedProduct.name}</span>
-                  </h2>
-                  <p id="modal-modal-description" style={{ color: 'silver', textAlign: 'justify' }}>
-                    <span style={{ color: 'gold', fontWeight: 'bold' }}>Détails:</span>
-                    <span>{selectedProduct.description}</span>
-                  </p>
+                  <h2>{t("products.product")}: {selectedProduct.name}</h2>
+                  <p>{t("products.details")}: {selectedProduct.description}</p>
                 </div>
               </div>
             </>
           )}
         </Box>
       </Modal>
-      <Modal
-        open={showConfirmationModal}
-        onClose={() => setShowConfirmationModal(false)}
-        aria-labelledby="confirmation-modal-title"
-      >
+      <Modal open={showConfirmationModal} onClose={() => setShowConfirmationModal(false)}>
         <Box sx={confirmationModalStyle}>
           <AiOutlineCheckCircle color="green" size={30} />
-          <span>Produit ajouté au panier</span>
+          <span>{t("products.addedToCart")}</span>
         </Box>
       </Modal>
     </div>
